@@ -1,0 +1,30 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_task:
+  title: first task
+  content: This is my first task
+  user: sampleuser
+
+second_task:
+  title: second task
+  content: This task is other user task
+  user: otheruser
+
+last_task:
+  title: last task
+  content: This task is other user task
+  user: otheruser
+
+<% 10.times do |n| %>
+testtask_<%= n %>:
+  title: other_user task <%= n %>
+  content: sample task
+  user: otheruser
+<% end %>
+
+<% 10.times do |n| %>
+test_task_<%= n %>:
+  title: sampleuser task <%= n %>
+  content: sample task
+  user: sampleuser
+<% end %>

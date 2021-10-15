@@ -1,0 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_group:
+  name: "sample group"
+
+second_group:
+  name: "sample department"

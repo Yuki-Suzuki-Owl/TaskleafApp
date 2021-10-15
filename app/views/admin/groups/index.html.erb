@@ -1,0 +1,16 @@
+<h1>All Group No need this page..</h1>
+<div class="">
+  <p>Create new Group</p>
+  <%= render "group_form" %>
+</div>
+<div class="groups">
+  <% if @groups %>
+    <% @groups.each do |group| %>
+      <ul>
+        <li><%= group.id %></li>
+        <li><%= link_to group.name + " (#{group.users.count})",admin_group_path(group) %></li>
+        <li><%= link_to "group destroy",admin_group_path(group),method: :delete,data:{confirm:"#{group.name} delete? \n This operation cannot be undone,is that okay?"} %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

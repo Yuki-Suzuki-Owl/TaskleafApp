@@ -1,0 +1,5 @@
+<%= form_with(model:task = GroupTask.find_by(task_id:@task.id),html:{method: :delete},class:"public_btn") do |f| %>
+  <%= hidden_field_tag(:task_id,@task.id) %>
+  <%= hidden_field_tag(:group_id,task.group_id) %>
+  <%= f.submit "Unpublish",class:"submit" %>
+<% end %>

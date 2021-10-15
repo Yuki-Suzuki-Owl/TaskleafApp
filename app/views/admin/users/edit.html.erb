@@ -1,0 +1,6 @@
+<% if current_user.admin? %>
+  <h1>Edit User</h1>
+<% else %>
+  <h1>Password Change</h1>
+<% end %>
+<%= render "user_form" %>

@@ -1,0 +1,8 @@
+<%= form_with(model:[:admin,@group],class:"group_form",local:true) do |f| %>
+  <%= render "shared/errors",object:@group %>
+  <div class="form">
+    <%= f.label :name,"Group Name",class:"" %>
+    <%= f.text_field :name,placeholder:"create new group",class:"" %>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="groups_frame">
+  <h1>All Groups</h1>
+  <%= render "admin/groups/group_form" %>
+  <% if @groups %>
+    <ul class="group_names">
+      <% @groups.each do |group| %>
+        <li><%= link_to group.name,admin_group_path(group) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="users_frame">
+  <h1>All Users</h1>
+  <div class="new_link">
+    <%= link_to "create new users",new_admin_user_path %>
+  </div>
+  <% if @users %>
+    <div class="users">
+      <% @users.each do |user| %>
+        <ul class="user">
+          <li>ID : <%= user.id %></li>
+          <li>Name : <%= link_to user.name,[:admin,user] %></li>
+          <li>Email : <%= user.email %></li>
+          <li>Group : <%= user.group.name %></li>
+          <div class="user_menu">
+            <%= link_to "edit",edit_admin_user_path(user),class:"btn" %>
+            <%= link_to "delete",admin_user_path(user),class:"btn",method: :delete,data:{confirm:"#{user.name} delete?"} %>
+          </div>
+        </ul>
+      <% end %>
+    </div>
+    <%= paginate @users %>
+  <% end %>
+</div>

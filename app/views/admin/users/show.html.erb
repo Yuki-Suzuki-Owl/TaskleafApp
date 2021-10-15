@@ -1,0 +1,19 @@
+<h1>User show</h1>
+<div class="user_show">
+  <div class="user">
+    <h2><%= @user.name %></h2>
+    <ul>
+      <li>ID : <%= @user.id %></li>
+      <li>Name : <%= @user.name %></li>
+      <li>Email : <%= @user.email %></li>
+      <li>Group : <%= @user.group.name %></li>
+      <li>Tasks Count : <%= @user.tasks.count %></li>
+      <div class="user_menu">
+        <%= link_to "edit",edit_admin_user_path(@user) %>
+        <% if current_user.admin? %>
+          <%= link_to "delete",admin_user_path(@user),method: :delete,data:{confirm:"#{@user.name} delete?"} %>
+        <% end %>
+      </div>
+    </ul>
+  </div>
+</div>

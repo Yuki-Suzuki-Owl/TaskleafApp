@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TaskleafNext</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1>TaskLeafNext</h1>
+      <div class="header-menu">
+        <ul>
+          <% if logged_in? %>
+            <% if current_user.admin? %>
+              <li><%= link_to "users",admin_users_path %></li>
+            <% end %>
+            <li>user : <%= link_to current_user.name,[:admin,current_user] %></li>
+            <li><%= link_to "tasks",tasks_path %></li>
+            <li><%= link_to "group tasks",group_tasks_path %></li>
+            <li><%= link_to "Log out",logout_path,method: :delete %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="flash">
+        <% if flash.any? %>
+          <ul>
+            <% flash.each do |type,msg| %>
+              <li class="<%= type %>"><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <div class="contents">
+        <%= yield %>
+      </div>
+    </main>
+  </body>
+</html>

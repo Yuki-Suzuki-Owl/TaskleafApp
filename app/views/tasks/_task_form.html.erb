@@ -1,0 +1,13 @@
+<div class="task_form">
+  <%= form_with(model:@task,local:true) do |f| %>
+    <%= render "shared/errors",object:@task %>
+
+    <%= f.label :title,class:"form" %>
+    <%=f.text_field :title,class:"form" %>
+
+    <%= f.label :content,class:"form" %>
+    <%=f.text_area :content,class:"form textarea" %>
+
+    <%=f.submit class:"form submit" %>
+  <% end %>
+</div>

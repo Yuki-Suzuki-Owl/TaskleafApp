@@ -1,0 +1,31 @@
+<div class="groups_frame">
+  <h1>
+    <%= @group.name %> Group
+    <span class="group_link">
+    <%= link_to "delete",admin_group_path(@group),method: :delete,data:{confirm:"#{@group.name} delete? \n This operation cannot be undone, is that okay?"} %>
+  </span>
+  </h1>
+
+  <div class="edit_group_name">
+    <!-- <a href="#">Edit Group Name</a> -->
+    <p><%= render "group_form" %></p>
+  </div>
+
+  <div class="groups_frame">
+    <div class="group_user">
+      <h2>
+        <%= @group.name %> users
+        (<%= @group.users.count %>)
+      </h2>
+      <% if @group.users.any? %>
+        <ul>
+          <% @group.users.each do |user| %>
+            <li><%= link_to user.name,[:admin,user] %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No users</p>
+      <% end %>
+    </div>
+  </div>
+</div>

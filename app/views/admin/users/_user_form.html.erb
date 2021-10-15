@@ -1,0 +1,24 @@
+<div class="user_form">
+  <%= form_with(model:[:admin,@user],local:true) do |f| %>
+    <%= render "shared/errors",object:@user %>
+
+    <% if current_user.admin? %>
+      <%= f.label :name,class:"form" %>
+      <%= f.text_field :name,class:"form" %>
+
+      <%= f.label :email,class:"form" %>
+      <%= f.email_field :email,class:"form" %>
+
+      <%= f.label :group_id,class:"form" %>
+      <%= f.select :group_id,Group.all.collect{|p|[p.name,p.id]},{},class:"form" %>
+
+    <% end %>
+      <%= f.label :password,class:"form" %>
+      <%= f.password_field :password,class:"form" %>
+
+      <%= f.label :password_confirmation,class:"form" %>
+      <%= f.password_field :password_confirmation,class:"form" %>
+
+    <%= f.submit class:"form submit" %>
+  <% end %>
+</div>

@@ -1,0 +1,317 @@
+/***** smart Phone display *****/
+/***** all common start *****/
+html {
+  height:100%;
+}
+body {
+  height:100%;
+  margin:0;
+  background:bisque;
+}
+
+
+* {
+  margin:0;
+  box-sizing:border-box;
+  a {
+    text-decoration:none;
+    // color:black;
+  }
+  .btn {
+    // border:1px solid black;
+    // background:#f1f1f1;
+    // padding:0 2px;
+    margin:0 5px;
+  }
+  .flash {
+    .danger {
+      background:lightsalmon;
+    }
+    .success {
+      background:palegreen;
+    }
+    text-align:center;
+    ul {
+      margin:0;
+      padding:0;
+    }
+  }
+
+  .errors {
+    width:80%;
+    margin:auto;
+    padding:0;
+    .msg {
+      margin-left:30px;
+      list-style:disc;
+      color:maroon;
+    }
+  }
+  .contents {
+    padding:1vw 2vw;
+    h1 {
+      text-align:center;
+    }
+  }
+}
+/***** all common end *****/
+
+/***** header start ******/
+header {
+  background:lemonchiffon;
+  min-height:10vh;
+  padding:1vw 0;
+  h1 {
+    text-align:center;
+  }
+  .header-menu {
+    ul {
+      padding:0;
+      display:flex;
+      justify-content:space-around;
+    }
+    li {
+      // background:skyblue;
+      list-style:none;
+    }
+  }
+}
+@media screen and (min-width:650px) {
+  header {
+    .header-menu {
+      width:50%;
+      margin:0 0 0 auto;
+    }
+  }
+}
+/***** header end ******/
+
+/***** sessions/new start *****/
+.login {
+  padding:20px 0;
+}
+.login_form,.user_form {
+  padding:20px 0;
+  .form {
+    display:block;
+    width:80%;
+    margin:1vw auto;
+    // margin:10px auto;
+  }
+  .submit {
+    width:50vw;
+    max-width:200px;
+    margin:20px auto;
+  }
+}
+@media screen and (min-width:650px) {
+  .login {
+    padding:30px 0;
+  }
+  .login_form,.user_form {
+    border:1px solid black;
+    width:50%;
+    max-width:400px;
+    margin:5vw auto;
+    padding:2vw 1vw;
+  }
+}
+/***** sessions/new end *****/
+
+/***** tasks common start *****/
+.tasks_common {
+  padding:10px;
+  h1 {
+    text-align:center;
+  }
+  ul {
+    padding:0;
+    li {
+      list-style:none;
+    }
+  }
+  .task {
+    .task_btns {
+      text-align:right;
+      // border:1px solid black;
+    }
+  }
+}
+/***** tasks common end *****/
+
+/***** tasks/index start *****/
+.new_link {
+  text-align:right;
+  background:skyblue;
+}
+.tasks .task {
+  max-width:500px;//
+  margin:auto;//
+  border-bottom:1px solid gray;
+  .task_title {
+    font-weight:bold;
+    font-size:1.2em;
+  }
+  .task_content {
+    padding-left:1em;
+    font-weight:lighter;
+  }
+}
+
+@media screen and (min-width:650px) {
+  .tasks_common {
+    .sp_task_show {
+      border:none;
+      padding:none;
+    }
+    .tasks {
+      // display:flex;
+      // flex-wrap:wrap;
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+      grid-gap:10px;
+    }
+    .task {
+      margin:inherit;
+      border:1px solid gray;
+      border-radius:10px;
+      padding:20px 20px;
+      // margin:5px auto;
+      // flex:1 300px;
+    }
+  }
+}
+/***** tasks/index end *****/
+
+/***** tasks/show start *****/
+.sp_task_show {
+  border:1px solid gray;
+  border-radius:10px;
+  padding:10px 20px;
+  max-width:700px;
+  margin:auto;
+  // background:gray;
+}
+.task_info {
+  // border: 1px solid black;
+  margin-top:20px;
+  text-align:right;
+  font-size:0.8em;
+  font-weight:lighter;
+}
+.public_btn {
+  display:inline-block;
+  .submit {
+    background-color:transparent;
+    border:none;
+    // border-radius:none;
+    // appearance:none;
+    // align-items: stretch;
+    // // padding:0;
+    // margin:0;
+    font-size:1em;
+  }
+}
+/***** tasks/show end *****/
+
+/***** tasks/new & edit start *****/
+
+.task_form {
+  border:1px solid black;
+  max-width:800px;
+  margin:auto;
+  padding:5vw 0;
+
+  .form {
+    display:block;
+    width:80%;
+    margin:1vw auto;
+    padding:5px;
+  }
+  .textarea {
+    height:40vw;
+  }
+  .submit {
+    width:20%;
+    max-width:200px;
+    margin:20px auto;
+    padding:5px;
+  }
+}
+@media screen and (min-width:650px) {
+  .task_form {
+    padding:3vw 0;
+  }
+}
+  /***** tasks/new & edit end *****/
+
+  /***** users/index end *****/
+  .groups_frame,.users_frame {
+    border:1px solid black;
+    padding:1em;
+    margin-bottom:2em;
+  }
+  .groups_frame {
+    .group_form {
+      // border:1px solid black;
+      margin:10px;
+      .errors {
+        padding-left:0;
+        margin-left:0;
+      }
+      .form {
+        display:flex;
+      }
+    }
+    ul {
+      padding-left:30px;
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    }
+  }
+
+.users_frame {
+  .users {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  }
+  ul {
+    padding-left:30px;
+  }
+  .user {
+    border:1px solid black;
+    margin:10px;
+    .user_menu {
+      text-align:right;
+    }
+  }
+}
+/***** users/index end *****/
+
+/***** users/show start *****/
+.user_show {
+  border:1px solid black;
+  padding:1em 2em;
+  max-width:400px;
+  margin:auto;
+  .user_menu {
+    text-align:right;
+  }
+}
+/***** users/show end *****/
+
+
+/***** users/new & edit start *****/
+.user_form {
+  border:1px solid black;
+}
+/***** users/new & edit end *****/
+
+/***** groups/show start *****/
+.group_link {
+    border:1px solid black;
+    display:inline-block;
+    font-size:0.3em;
+}
+
+/***** groups/show end *****/

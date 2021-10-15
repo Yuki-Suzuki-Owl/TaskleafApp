@@ -1,0 +1,20 @@
+<div class="tasks_common">
+  <h1><%= @task.title %></h1>
+  <div class="sp_task_show">
+    <ul class="task">
+      <li><%= simple_format(@task.content) %></li>
+      <div class="task_info">
+        <li>Created_at : <%= @task.created_at %></li>
+        <li>Updated_at : <%= @task.updated_at %></li>
+        <li>Create User : <%= @task.user.name %></li>
+      </div>
+      <% if current_user == @task.user %>
+        <div class="task_btns">
+          <%= link_to "edit",edit_task_path(@task),class:"btn" %>
+          <%= link_to "delete",task_path(@task),class:"btn",method: :delete,data:{confirm:"#{@task.title} delete?"} %>
+          <%= render "tasks/public" %>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

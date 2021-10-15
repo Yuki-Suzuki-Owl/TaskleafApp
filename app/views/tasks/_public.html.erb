@@ -1,0 +1,5 @@
+<% if current_user.group.tasks.include?(@task) %>
+  <%= render "tasks/unpublish_task" %>
+<% else %>
+  <%= render "tasks/publish_task" %>
+<% end %>

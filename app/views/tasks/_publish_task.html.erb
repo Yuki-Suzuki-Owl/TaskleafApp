@@ -1,0 +1,17 @@
+<%
+=begin
+%>
+<%= form_with(model:current_user.group.group_tasks.build,class:"public_btn") do |f| %>
+  <%= hidden_field_tag(:task_id,@task.id) %>
+  <%= hidden_field_tag(:user_id,@task.user_id) %>
+
+  <%= f.submit "public",class:"submit" %>
+<% end %>
+<%
+=end
+%>
+<%= form_with(model:GroupTask.new,class:"public_btn") do |f| %>
+  <%= hidden_field_tag(:task_id,@task.id) %>
+  <%= hidden_field_tag(:group_id,current_user.group.id) %>
+  <%= f.submit "public",class:"submit" %>
+<% end %>
