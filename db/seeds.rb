@@ -15,7 +15,7 @@ group.users.create(name:"testuser",email:"testuser@email.com",password:"password
 # User.create!(name:"testuser",email:"testuser@email.com",password:"password",password_confirmation:"password",admin:true)
 10.times do |i|
   @group = Group.create!(name:"group#{i}")
-  10.times do |j|
+  5.times do |j|
     name = "user#{i}#{j}"
     email = name + "@email.com"
     password = "password"
@@ -25,7 +25,7 @@ end
 @group = Group.all
 @group.each do |group|
   group.users.each do |user|
-    10.times do |t|
+    5.times do |t|
       title = content =  "#{user.name}#{t} task"
       user.tasks.create!(title:title,content:content)
     end
