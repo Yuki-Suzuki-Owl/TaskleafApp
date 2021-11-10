@@ -1,24 +1,23 @@
-# README
+#アプリケーション概要
+  こちらは、タスク共有アプリケーションです。
+  管理者がユーザー登録をすることによって、該当ユーザーはこのアプリケーションを使えるようになりす。
+  ユーザーはグループに所属しており、自分が作成したタスクを所属グループに共有したり、共有されたタスクを閲覧することができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#動作環境
+  Ruby  3.0.1
+  Rails 6.1.4
+  MySQL 8.0
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#機能
+  ●一般ユーザー
+  ・ログイン、ログアウト
+      識別IDとパスワードでログイン
+  ・タスク機能
+      自分のタスクの一覧表示、詳細表示
+      タスクの作成、更新、削除
+      自分のタスクをグループ内で共有
+      グループタスクの一覧表示、詳細表示
+  ●管理者ユーザー
+    一般ユーザー機能に加え以下の作業が行える
+      ・ユーザーの作成、更新、削除
+      ・グループの新規作成、更新、削除
