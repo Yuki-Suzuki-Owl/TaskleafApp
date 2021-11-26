@@ -18,7 +18,7 @@
   <% if @users %>
     <div class="users">
       <% @users.each do |user| %>
-        <ul class="user">
+        <ul class="user <%="user_#{user.id}"%>">
           <li>ID : <%= user.id %></li>
           <li>Name : <%= link_to user.name,[:admin,user] %></li>
           <li>Email : <%= user.email %></li>

@@ -1,7 +1,8 @@
 class Task < ApplicationRecord
   validates :title,presence:true,length:{minimum:2,maximum:30}
   # ,uniqueness:true
-  validate :title, :uniqueness_user_in_task
+  # validate :title, :uniqueness_user_in_task
+  validates :title,uniqueness: {scope: :user_id}
   belongs_to :user
   has_many :group_tasks,dependent: :destroy
   has_many :groups,through: :group_tasks
@@ -24,21 +25,4 @@ class Task < ApplicationRecord
     return string
   end
 
-  private
-  def uniqueness_user_in_task
-    # title.include?("")
-    user = User.find_by(id:user_id)
-    # user = User.fid(id:self.user_id)
-    if user.nil?
-      errors.add(:user_id,"user need")
-    else
-      user.tasks.each do |user_task|
-        if user_task.id =! self.id
-          if user_task.title == self.title
-            errors.add(:title,"title must be unique")
-          end
-        end
-      end
-    end
-  end
 end

@@ -39,13 +39,12 @@ class Admin::UsersController < ApplicationController
   def update
     # @user = User.find(params[:id])
     if current_user.admin?
-
       group = @user.group
       if @user.update(admin_user_params)
         if @user.group != group
           group.tasks.each do |task|
             if @user.tasks.include?(task)
-              task.destroy
+              group.tasks.destroy(task)
             end
           end
           flash[:info] = "Published group_tasks are now private."

@@ -45,7 +45,6 @@ class GroupTasksController < ApplicationController
   def destroy
     task = current_user.tasks.find_by(id:params[:task_id])
     group = Group.find_by(id:params[:group_id])
-    # debugger
     if group.tasks.destroy(task)
       # group.tasks.find_by(id:task.id).destroy
       # current_user.group.tasks.find_by(params[:task_id]).destroy

@@ -18,7 +18,8 @@ class Admin::GroupsController < ApplicationController
       redirect_to admin_users_path
     else
       @groups = Group.all
-      @users = User.all
+      @users = User.page(params[:page])
+      # @users = User.all
       render "admin/users/index"
     end
   end
@@ -41,7 +42,7 @@ class Admin::GroupsController < ApplicationController
       redirect_to admin_users_path
     else
       @groups = Group.all
-      @users = User.all
+      @users = User.page(params[:page])
       flash[:danger] = "#{@group.name} is not empty!"
       render "admin/users/index"
     end
